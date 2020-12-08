@@ -1,0 +1,19 @@
+{
+  "name": "sistema-ventas-servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marioangelillo/sistema-ventas-servidor.git"
+  },
+  "author": "Mario Angelillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marioangelillo/sistema-ventas-servidor/issues"
+  },
+  "homepage": "https://github.com/marioangelillo/sistema-ventas-servidor#readme"
+}
