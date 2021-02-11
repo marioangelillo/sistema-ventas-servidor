@@ -40,7 +40,7 @@ exports.findProduct = async (req, res) => {
         
    try {
         db.query(sqlFindProduct, (err, result) => {
-            console.log(err);
+            //console.log(err);
             res.json(result);
         })
     } catch (error) {
@@ -48,4 +48,19 @@ exports.findProduct = async (req, res) => {
         return res.status(400).json({msg: 'Hubo un error'});
     }
     
+}
+
+exports.deleteProduct = async (req, res) =>{
+    
+    const sqlDeleteProduct = "DELETE FROM sistemaventas.productos WHERE id=" + req.params.id
+        
+   try {
+        db.query(sqlDeleteProduct, (err, result) => {
+            //console.log(err);
+            res.json(result);
+        })
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({msg: 'Hubo un error'});
+    }
 }

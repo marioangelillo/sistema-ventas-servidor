@@ -16,4 +16,8 @@ router.post('/find/',
   productController.findProduct
 );
 
+router.delete('/deleteproduct/:id',
+  productController.deleteProduct
+);
+
 module.exports = router ;
