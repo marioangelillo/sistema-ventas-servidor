@@ -64,3 +64,22 @@ exports.deleteProduct = async (req, res) =>{
         return res.status(400).json({msg: 'Hubo un error'});
     }
 }
+
+exports.updateProduct = async (req, res) =>{
+
+       
+        
+    const {nombre, precio, stock} = req.body;
+    const sqlUpdateProduct = "UPDATE sistemaventas.productos SET nombre = ?, precio = ?, stock = ? WHERE id = " + req.params.id
+    
+    console.log(req.body);
+    try {
+        db.query(sqlUpdateProduct, [nombre, precio, stock], (err, result) => {
+            console.log(err)
+            res.json(result);
+        })
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({msg: 'Hubo un error'});
+    }
+}
