@@ -4,7 +4,7 @@ const mysql = require('mysql');
 var db = mysql.createPool({
     host     : 'localhost',
     user     : 'root',
-    password : 'xica1313',
+    password : 'root',
     database : 'sistemaventas'
   });
 
@@ -17,12 +17,11 @@ exports.insertProduct = async (req, res) => {
 
     const {name, price, stock} = req.body
     const sqlInsert = "INSERT INTO sistemaventas.productos (nombre, precio, stock) VALUES (?,?,?);"; 
-    
-    console.log(req.body);
+
     try {
         db.query(sqlInsert, [name, price, stock], (err, result) => {
             console.log(err)
-            res.json({msg: 'Todo OK'})
+            res.json({msg: 'Producto agregado correctamente'})
         })
     } catch (error) {
         console.error(error);
@@ -72,7 +71,6 @@ exports.updateProduct = async (req, res) =>{
     const {nombre, precio, stock} = req.body;
     const sqlUpdateProduct = "UPDATE sistemaventas.productos SET nombre = ?, precio = ?, stock = ? WHERE id = " + req.params.id
     
-    console.log(req.body);
     try {
         db.query(sqlUpdateProduct, [nombre, precio, stock], (err, result) => {
             console.log(err)
